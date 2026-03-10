@@ -992,10 +992,12 @@ class ContextMenuOrSubMenu extends ContextMenuBase {
     const overflowsRight = rect.right > document.body.clientWidth;
     const spaceOnLeft = anchorLeft + window.scrollX;
     const fitsOnLeft = rect.width <= spaceOnLeft;
+    this.menu.classList.remove("left");
 
     if (overflowsRight && fitsOnLeft) {
       this.menu.style.left = "";
       this.menu.style.right = (document.body.clientWidth - spaceOnLeft) + "px";
+      this.menu.classList.add("left");
     }
 
     // If it overflows, either flip it or constrain its height.
